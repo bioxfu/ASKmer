@@ -1,8 +1,9 @@
 bg_seq
 doc
-kmer
+kmer*
 nohup.out
 .snakemake
 Snakefile
 config.yaml
 script/.Rhistory
+nohup.log
