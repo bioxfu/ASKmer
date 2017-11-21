@@ -3,7 +3,7 @@ configfile: "config.yaml"
 rule all:
 	input:
 		['bg_seq/SE_R1-R5_{region_len}.seq'.format(region_len=x) for x in config['region_len']],
-		expand('kmer/{AS_event}.{region_len}bp.k{kmer}.txt', AS_event=config['AS_event'], region_len=config['region_len'], kmer=config['kmer'])
+		expand('{AS_event}.{region_len}bp.k{kmer}.txt', AS_event=config['AS_event'], region_len=config['region_len'], kmer=config['kmer'])
 
 rule get_bg_seq:
 	input:
@@ -19,9 +19,9 @@ rule get_bg_seq:
 rule AS_kmer_enrich:
 	input:
 		bg_seq = 'bg_seq/SE_R1-R5_{region_len}.seq',
-		events = 'kmer/{AS_event}'
+		events = '{AS_event}'
 	output:
-		'kmer/{AS_event}.{region_len}bp.k{kmer}.txt'
+		'{AS_event}.{region_len}bp.k{kmer}.txt'
 	params:
 		Rscript = config['Rscript_path']
 	shell:
