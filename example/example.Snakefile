@@ -8,13 +8,13 @@ rule all:
 rule get_bg_seq:
 	input:
 		genome = config['genome'],
-		ASTA = config['ASTA']
+		rMATS = config['rMATS']
 	output:
 		['bg_seq/SE_R1-R5_{region_len}.seq'.format(region_len=x) for x in config['region_len']]
 	params:
 		region_len = config['region_len']
 	shell:
-		'python script/get_R1-R5.py {input.genome} {input.ASTA} bg_seq {params.region_len}'
+		'python script/get_R1-R5_rMATS.py {input.genome} {input.rMATS} bg_seq {params.region_len}'
 
 rule AS_kmer_enrich:
 	input:

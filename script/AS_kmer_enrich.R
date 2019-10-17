@@ -43,12 +43,17 @@ AS_seq = args[1]
 AS_lst = args[2]
 output = args[3]
 
+# AS_seq = 'bg_seq/SE_R1-R5_100.seq'
+# AS_lst = 'kmer/T158_SE_inclusion_dn'
+# output = 'kmer/T158_SE_inclusion_dn.100bp.k5.txt'
+
 kmer = as.numeric(sub('k', '', strsplit(output, '.' ,fixed = T)[[1]][3]))
 region_len = as.numeric(sub('bp', '', strsplit(output, '.' ,fixed = T)[[1]][2]))
 
 permut = 1000
 
 tab = read.table(AS_seq, stringsAsFactors=F)
+tab[,2] <- sub('\\(.+', '', tab[,2])
 ids = read.table(AS_lst)[,1]
 
 Rs =  paste('R', 1:5, sep='')

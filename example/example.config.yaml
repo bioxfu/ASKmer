@@ -1,15 +1,19 @@
 species: mouse
 
 AS_event:
-  - kmer/SE_inclusion_dn
-  - kmer/SE_inclusion_up
-  - kmer/SE_inclusion_all
+  - kmer/KO_SE_inclusion_dn
+  - kmer/KO_SE_inclusion_up
+#  - kmer/T158_SE_inclusion_dn
+#  - kmer/T158_SE_inclusion_up
 
 Rscript_path: /home/xfu/R/3.2.4/bin/Rscript
 
-genome: /home/xfu/Gmatic5/genome/mm10/mm10.fa
+genome: /home/xfu/Gmatic6/genome/mm10/mm10.fa
 
-ASTA: /home/xfu/Gmatic5/gene/mm10_vM13/ASTA/gencode_astalavista_SE.bed
+#ASTA: /home/xfu/Gmatic6/gene/mm10_vM13/ASTA/gencode_astalavista_SE.bed
+
+rMATS: /data1/HJY/Project/HJY_Mecp2_KO_T158M_RNA_4sam_4rep/KO/AltSplicing2_1234/rMATS_out/WT_vs_KO/fromGTF.SE.txt
+#rMATS: /data1/HJY/Project/HJY_Mecp2_KO_T158M_RNA_4sam_4rep/T158M/AltSplicing2_1234/rMATS_out/WT_vs_T158/fromGTF.SE.txt
 
 kmer: 
   - 5
